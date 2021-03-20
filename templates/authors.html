@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}
+Authors - {{ SITENAME }}
+{% endblock %}
+
+{% block breadcrumbs %}
+<nav class="breadcrumb">
+    <ol>
+        <li>
+            <a href="{{ SITEURL }}" title="Home">
+                <i class="breadcrumb-icon fas fa-home fa-fw fa-lg" aria-hidden="true"></i>
+                HOME
+            </a>
+        </li>
+        <li class="active">
+            <span>
+                <i class="breadcrumb-icon far fa-eye fa-fw fa-lg" aria-hidden="true"></i>
+                Authors
+            </span>
+        </li>
+    </ol>
+</nav>
+{% endblock %}
+
+{% block content %}
+    <section class="authors">
+        <h1>
+            Authors on {{ SITENAME }}:
+        </h1>
+        <ul>
+            {% for author, articles in authors | sort %}
+                <li>
+                    <a href="{{ SITEURL }}/{{ author.url }}">
+                        {{ author }}({{articles | count}})
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+
+    </section>
+{% endblock %}

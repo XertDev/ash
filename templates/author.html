@@ -1,0 +1,31 @@
+{% extends "index.html" %}
+
+{% block title %}
+    Articles by {{author}} - {{ SITENAME }}
+{% endblock %}
+
+
+{% block breadcrumbs %}
+<nav class="breadcrumb">
+    <ol>
+        <li>
+            <a href="{{ SITEURL }}" title="Home">
+                <i class="breadcrumb-icon fas fa-home fa-fw fa-lg" aria-hidden="true"></i>
+                HOME
+            </a>
+        </li>
+        <li>
+            <a href="{{ SITEURL }}/{{ AUTHORS_URL | default('authors.html')}}" title="Authors">
+                <i class="breadcrumb-icon fas fa-users fa-fw fa-lg" aria-hidden="true"></i>
+                Authors
+            </a>
+        </li>
+        <li class="active">
+            <span>
+                <i class="breadcrumb-icon far fa-eye fa-fw fa-lg" aria-hidden="true"></i>
+                {{ AUTHOR }}
+            </span>
+        </li>
+    </ol>
+</nav>
+{% endblock %}

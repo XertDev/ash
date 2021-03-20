@@ -1,0 +1,35 @@
+{% extends "index.html" %}
+
+{% block title %}
+{{ category }} - {{ SITENAME }}
+{% endblock %}
+
+{% block meta_ext %}
+    <meta name="author" content="{{ AUTHOR }}"/>
+    <meta name="keywords" content="{{ category }}"/>
+{% endblock %}
+
+{% block breadcrumbs %}
+<nav class="breadcrumb">
+    <ol>
+        <li>
+            <a href="{{ SITEURL }}" title="Home">
+                <i class="breadcrumb-icon fas fa-home fa-fw fa-lg" aria-hidden="true"></i>
+                HOME
+            </a>
+        </li>
+        <li>
+            <a href="{{ SITEURL }}/{{ CATEGORIES_URL | default('categories.html') }}" title="{{ SITENAME }} Categories">
+                <i class="breadcrumb-icon fas fa-folder fa-fw fa-lg" aria-hidden="true"></i>
+                Categories
+            </a>
+        </li>
+        <li class="active">
+            <span>
+                <i class="breadcrumb-icon far fa-eye fa-fw fa-lg" aria-hidden="true"></i>
+                {{ category }}
+            </span>
+        </li>
+    </ol>
+</nav>
+{% endblock %}

@@ -1,0 +1,15 @@
+<div class="sidebar-taglist">
+    <span class="sidebar-header">
+        <i class="fas fa-tag fa-fw fa-lg"></i>
+        Tags
+    </span>
+    <ul>
+        {% for tag in tags %}
+        <li>
+            <a href="{{ SITEURL }}/{{ tag.0.url }}">
+                #{{tag.0}}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>

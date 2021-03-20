@@ -1,0 +1,32 @@
+<header class="article-head">
+    <h1 class="article-title">
+        <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="{{article.title | striptags | e}}">
+            {{ article.title }}
+        </a>
+    </h1>
+    <div class="article-info">
+        <p>
+            {% if article.author %}
+            Posted by
+            <a href="{{ SITEURL }}/{{ article.author.url }}" title="{{ article.author }}">
+                {{ article.author }}
+            </a>
+            {% endif %}
+            in
+            <a href="{{ SITEURL }}/{{ article.category.url }}">
+                {{ article.category }}
+            </a>
+            {% if PDF_PROCESSOR %}
+                <a href="{{ SITEURL }}/pdf/{{ article.slug }}.pdf">
+                    [PDF]
+                </a>
+            &nbsp;&nbsp;
+            {% endif %}
+        </p>
+        <p>
+            <time datetime="{{ article.date.isoformat() }}">
+                {{ article.locale_date }}
+            </time>
+        </p>
+    </div>
+</header>

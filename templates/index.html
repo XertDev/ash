@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ super() }} {% if articles_page and articles_page.number > 1 %} - Page {{ articles_page.number }}{% endif %}
+{% endblock %}
+
+{% block canonical %}
+    <link rel="canonical" href="{{ SITEURL }}"/>
+{% endblock %}
+
+{% block content %}
+    {% if articles %}
+        <div class="article-list">
+        {% for article in (articles_page.object_list if articles_page else articles) %}
+            <article>
+                {% include "includes/article_header.html" %}
+                <section class="article-content">
+                    {% include "includes/article_summary.html" %}
+                </section>
+            </article>
+            <hr class="article-divider">
+            {% endfor %}
+        </div>
+        {% if DEFAULT_PAGINATION %}
+            {% include "includes/pagination.html" %}
+        {% endif %}
+    {% endif %}
+{% endblock content %}

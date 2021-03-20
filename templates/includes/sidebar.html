@@ -1,0 +1,48 @@
+<aside class="sidebar">
+    <div class="sidebar-box">
+        <div class="sidebar-content">
+            <hr class="sidebar-top-divider">
+            {# Social #}
+
+            {% if SOCIAL %}
+            <ul class="sidebar-social">
+                {% for item in SOCIAL %}
+                <li>
+                    <a href="{{ item[1] }}" target="_blank" title="{{ item[0] }}">
+                        <i class="{{ item[2] }}"></i>
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+            <hr class="sidebar-divider">
+            {% endif %}
+
+            {# Categories #}
+
+            {% if not SIDEBAR_HIDE_CATEGORIES %}
+            <div class="sidebar-categories">
+                <span class="sidebar-header">
+                    <i class="fas fa-folder fa-fw fa-lg"></i>
+                    Categories
+                </span>
+                <ul>
+                    {% for cat, null in categories %}
+                    <li>
+                        <a href="{{ SITEURL }}/{{ cat.url }}">
+                            {{cat}}
+                        </a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+
+            {# Extra modules #}
+
+            {% for mod in SIDEBAR_MODULES %}
+                <hr class="sidebar-divider">
+                {% include "sidebar/" +  mod %}
+            {% endfor %}
+        </div>
+    </div>
+</aside>

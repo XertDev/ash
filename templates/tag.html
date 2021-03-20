@@ -1,0 +1,36 @@
+{% extends "index.html" %}
+
+{% block title %}
+    {{ tag }} - {{ SITENAME }}
+{% endblock %}
+
+{% block meta_ext %}
+    <meta name="author" content="{{ AUTHOR }}"/>
+    <meta name="keywords" content="{{ tag }}"/>
+{% endblock %}
+
+{% block breadcrumbs %}
+<nav class="breadcrumb">
+    <ol>
+        <li>
+            <a href="{{ SITEURL }}" title="Home">
+                <i class="breadcrumb-icon fas fa-home fa-fw fa-lg" aria-hidden="true"></i>
+                HOME
+            </a>
+        </li>
+        <li>
+            <a href="{{ SITEURL }}/{{ TAGS_URL | default('tags.html') }}" title="Tags">
+                <i class="breadcrumb-icon fas fa-tag fa-fw fa-lg" aria-hidden="true"></i>
+                Tags
+            </a>
+        </li>
+        <li class="active">
+            <span>
+                <i class="breadcrumb-icon far fa-eye fa-fw fa-lg" aria-hidden="true"></i>
+                {{ tag }}
+            </span>
+        </li>
+    </ol>
+</nav>
+{% endblock %}
+

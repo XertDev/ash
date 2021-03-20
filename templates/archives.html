@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %} Archives - {{SITENAME}} {% endblock %}
+{% block meta_ext %}
+    {{ super () }}
+<meta name="description" content="{{ SITETAGALT }} Archive of Posts"/>
+{% endblock %}
+
+{% block canonical %}
+<link rel="canonical" href="{{ SITEURL }}/{{ ARCHIVES_URL|default('archives.html') }}"/>
+{% endblock %}
+
+
+{% block breadcrumbs %}
+<nav class="breadcrumb">
+    <ol>
+        <li>
+            <a href="{{ SITEURL }}" title="Home">
+                <i class="breadcrumb-icon fas fa-home fa-fw fa-lg" aria-hidden="true"></i>
+                HOME
+            </a>
+        </li>
+        <li class="active">
+            <span>
+                <i class="breadcrumb-icon far fa-eye fa-fw fa-lg" aria-hidden="true"></i>
+                Archive
+            </span>
+        </li>
+    </ol>
+</nav>
+{% endblock %}
+
+
+{% block content %}
+    <section class="archives">
+        <h1>
+            Archives
+        </h1>
+        {% for year, articles in dates | groupby('date.year') %}
+            <h2 class="archives-year">{{year}}</h2>
+            {% for article in articles %}
+                <div class="archive-entry">
+                    <span class="archive-entry-date">
+                        <time datetime="{{ article.date.isoformat() }}">
+                            {{ article.locale_date }}
+                        </time>
+                    </span>
+                    <h3 class="archive-entry-article">
+                        <a href="{{ SITEURL }}/{{ article.url }}" title="{{article.title}}">
+                            {{ article.title }}
+                        </a>
+                    </h3>
+                </div>
+            {% endfor %}
+        {% endfor %}
+    </section>
+{% endblock %}
