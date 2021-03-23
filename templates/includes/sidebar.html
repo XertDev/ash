@@ -9,7 +9,7 @@
                 {% for item in SOCIAL %}
                 <li>
                     <a href="{{ item[1] }}" target="_blank" title="{{ item[0] }}">
-                        <i class="{{ item[2] }}"></i>
+                        <i class="{{ item[2] }}" aria-hidden="true"></i>
                     </a>
                 </li>
                 {% endfor %}
@@ -22,13 +22,13 @@
             {% if not SIDEBAR_HIDE_CATEGORIES %}
             <div class="sidebar-categories">
                 <span class="sidebar-header">
-                    <i class="fas fa-folder fa-fw fa-lg"></i>
+                    <i class="fas fa-folder fa-fw fa-lg" aria-hidden="true"></i>
                     Categories
                 </span>
                 <ul>
                     {% for cat, null in categories %}
                     <li>
-                        <a href="{{ SITEURL }}/{{ cat.url }}">
+                        <a href="{{ SITEURL }}/{{ cat.url }}" rel="noopener">
                             {{cat}}
                         </a>
                     </li>

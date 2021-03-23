@@ -31,7 +31,7 @@ Authors - {{ SITENAME }}
         <ul>
             {% for author, articles in authors | sort %}
                 <li>
-                    <a href="{{ SITEURL }}/{{ author.url }}">
+                    <a href="{{ SITEURL }}/{{ author.url }}" rel="noopener">
                         {{ author }}({{articles | count}})
                     </a>
                 </li>
